@@ -4,13 +4,7 @@ ThisBuild / scalaVersion := "2.13.10"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "scala-java-project"
+    name := "java-scala"
   )
 
-
-lazy val javaProject = project.settings(
-  name := "java-project"
-)
-lazy val scalaProject = project.settings(
-  name := "scala-project"
-).dependsOn(javaProject)
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.15" % "test"
