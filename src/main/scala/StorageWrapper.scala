@@ -17,22 +17,50 @@ class StorageOperations extends StorageTrait {
   private val storageObject = new Storage
 
   def addElement(firstElement: Int, secondElement: Int, thirdElement: Int, fourthElement: Int): util.ArrayList[Integer] = {
-    logger.info("Adding elements to storage")
-    storageObject.addElement(firstElement, secondElement, thirdElement, fourthElement)
+    try {
+      logger.info("Adding elements to storage")
+      storageObject.addElement(firstElement, secondElement, thirdElement, fourthElement)
+    } catch {
+      case ex: Exception => {
+        logger.error("Exception while adding elements to storage", ex)
+        throw ex
+      }
+    }
   }
 
   def removeElement(elementToBeDeleted: Int): String = {
-    logger.info(s"Removing element: $elementToBeDeleted")
-    storageObject.removeElement(elementToBeDeleted)
+    try {
+      logger.info(s"Removing element: $elementToBeDeleted")
+      storageObject.removeElement(elementToBeDeleted)
+    } catch {
+      case ex: Exception => {
+        logger.error(s"Exception while removing element: $elementToBeDeleted", ex)
+        throw ex
+      }
+    }
   }
 
   def removeAllElement(): String = {
-    logger.info("Removing all elements from storage")
-    storageObject.removeAllElements()
+    try {
+      logger.info("Removing all elements from storage")
+      storageObject.removeAllElements()
+    } catch {
+      case ex: Exception => {
+        logger.error("Exception while removing all elements from storage", ex)
+        throw ex
+      }
+    }
   }
 
   def elementContains(elementToBeChecked: Int): Boolean = {
-    logger.info(s"Checking if element exists: $elementToBeChecked")
-    storageObject.checkElement(elementToBeChecked)
+    try {
+      logger.info(s"Checking if element exists: $elementToBeChecked")
+      storageObject.checkElement(elementToBeChecked)
+    } catch {
+      case ex: Exception => {
+        logger.error(s"Exception while checking if element exists: $elementToBeChecked", ex)
+        throw ex
+      }
+    }
   }
 }
