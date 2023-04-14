@@ -1,7 +1,9 @@
+import com.typesafe.scalalogging.Logger
+
 import java.util
 
 trait StorageTrait {
-  def addElement(element1: Int, element2: Int, element3: Int, element4: Int): util.ArrayList[Integer]
+  def addElement(firstElement: Int, secondElement: Int, thirdElement: Int, fourthElement: Int): util.ArrayList[Integer]
 
   def removeElement(elementToBeDeleted: Int): String
 
@@ -11,26 +13,26 @@ trait StorageTrait {
 }
 
 class StorageOperations extends StorageTrait {
-
+  private val logger: Logger = Logger(getClass.getName)
   private val storageObject = new Storage
 
-  // Function to call addElements and add the elements in Java ArrayList.
-  def addElement(element1: Int, element2: Int, element3: Int, element4: Int): util.ArrayList[Integer] = {
-    storageObject.addElement(element1, element2, element3, element4)
+  def addElement(firstElement: Int, secondElement: Int, thirdElement: Int, fourthElement: Int): util.ArrayList[Integer] = {
+    logger.info("Adding elements to storage")
+    storageObject.addElement(firstElement, secondElement, thirdElement, fourthElement)
   }
 
-  // Function to call removeElements of Java and remove the element from Java ArrayList.
   def removeElement(elementToBeDeleted: Int): String = {
+    logger.info(s"Removing element: $elementToBeDeleted")
     storageObject.removeElement(elementToBeDeleted)
   }
 
-  // Function to call removeAllElements of Java and remove all the elements from Java ArrayList.
   def removeAllElement(): String = {
+    logger.info("Removing all elements from storage")
     storageObject.removeAllElements()
   }
 
-  // Function to call checkElement of Java and check whether the element is present in Java ArrayList.
   def elementContains(elementToBeChecked: Int): Boolean = {
+    logger.info(s"Checking if element exists: $elementToBeChecked")
     storageObject.checkElement(elementToBeChecked)
   }
 }

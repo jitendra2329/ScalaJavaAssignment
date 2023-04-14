@@ -3,11 +3,11 @@ import java.util.ArrayList;
 public class Storage {
     ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
-    public ArrayList<Integer> addElement(int element1, int element2, int element3, int element4) {
-        arrayList.add(element1);
-        arrayList.add(element2);
-        arrayList.add(element3);
-        arrayList.add(element4);
+    public ArrayList<Integer> addElement(int firstElement, int secondElement, int thirdElement, int fourthElement) {
+        arrayList.add(firstElement);
+        arrayList.add(secondElement);
+        arrayList.add(thirdElement);
+        arrayList.add(fourthElement);
         return arrayList;
     }
 
